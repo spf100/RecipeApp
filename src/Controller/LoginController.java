@@ -1,17 +1,17 @@
 package Controller;
 import View.LoginForm;
+import View.RegisterForm;
 import _Services.CSV;
 
 import javax.swing.*;
 import java.io.IOException;
 
-public class UserController {
+public class LoginController {
     private LoginForm loginForm;
-
-    public UserController(LoginForm loginForm){
+    private RegisterForm registerForm;
+    public LoginController(LoginForm loginForm){
 
         this.loginForm = loginForm;
-
         this.loginForm.submitUserData(e -> {
             String username = this.loginForm.getUsername().trim();
             String password = this.loginForm.getPassword();
@@ -30,11 +30,12 @@ public class UserController {
             if(!check){
                 JOptionPane.showMessageDialog(this.loginForm, "Username, Password Combination is not valid", "Error", JOptionPane.ERROR_MESSAGE);
             }
-
             //allow user to move to next page
-
-
+            System.out.println(check);
+            System.out.println(username);
         });
+
+
 
     }
     public boolean checkCredentials(String username, String password) throws IOException {

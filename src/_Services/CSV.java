@@ -99,7 +99,7 @@ public class CSV {
     User Checks/Removes/Additions
      */
 
-    public boolean AddUser(String Username, String Password) throws IOException {
+    public static boolean AddUser(String Username, String Password) throws IOException {
         List<String[]> data;
         data = returnData(1);
         String[] element = data.get(data.size()-1);

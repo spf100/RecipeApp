@@ -1,28 +1,34 @@
 package View;
 
 import javax.swing.*;
+
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class LoginForm extends JPanel {
+public class RegisterForm extends JPanel {
 
     private JTextField usernameField;
     private JTextField passwordField;
+    private JTextField confirmPasswordField;
 
-    private JButton loginButton;
-    private JButton registerButton;
-    public LoginForm(){
+    private JButton submitButton;
+    private JButton cancelButton;
+
+    public RegisterForm(){
 
         JLabel usernameLabel = new JLabel("Username: ");
         JLabel passwordLabel = new JLabel("Password: ");
 
         usernameField = new JTextField(30);
         passwordField = new JTextField(30);
+        confirmPasswordField = new JTextField(30);
 
-        loginButton = new JButton("Login");
-        loginButton.setPreferredSize(new Dimension(278, 40));
-        registerButton = new JButton("Register");
-        registerButton.setPreferredSize(new Dimension(278, 40));
+
+        submitButton = new JButton("Login");
+        submitButton.setPreferredSize(new Dimension(278, 40));
+        cancelButton = new JButton("Register");
+        cancelButton.setPreferredSize(new Dimension(278, 40));
 
         Insets fieldsInset = new Insets(0,0,10,0);
         Insets buttonInset = new Insets(20, 0, 0, 0);
@@ -36,8 +42,9 @@ public class LoginForm extends JPanel {
     public String getPassword(){
         return passwordField.getText();
     }
+    public String getConfirmPassword(){return passwordField.getText();}
     public void submitUserData(ActionListener actionListener){
-        loginButton.addActionListener(actionListener);
+        submitButton.addActionListener(actionListener);
     }
 
     public void reset(boolean bool){
