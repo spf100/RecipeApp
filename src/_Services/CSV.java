@@ -4,7 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CSV {
-
+    /*
+    60 columns in recipe CSV, if no data put "","","",
+    Column order: Title, Directions, Quantity, Unit(measuring), Ingredient....repeat.....Category
+    3 columns in User CSV
+    Column order: ID, Username, Password
+     */
     public static List<String[]> returnData(Integer path) throws IOException {
         List<String[]> data = new ArrayList<>();
         String filepath;
@@ -84,6 +89,7 @@ public class CSV {
         //user doesnt exist
         return false;
     }
+
 
 
 }
