@@ -2,8 +2,10 @@ package Controller;
 import Model.testUserList;
 import Model.User;
 import View.LoginForm;
+import _Services.CSV;
 
 import javax.swing.*;
+import java.io.IOException;
 
 public class UserController {
     private LoginForm loginForm;
@@ -21,7 +23,12 @@ public class UserController {
                 return;
             }
             //check if user is in database
-            boolean check = this.checkCredentials(username, password);
+            boolean check = false;
+            try {
+                check = this.checkCredentials(username, password);
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
             if(!check){
                 JOptionPane.showMessageDialog(this.loginForm, "Username, Password Combination is not valid", "Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -32,15 +39,7 @@ public class UserController {
         });
 
     }
-    public boolean checkCredentials(String username, String password){
-
-        boolean check = false;
-        //if username is in database, check for matching password
-        //if found set check to true
-        if(/*found*/){
-            check = true;
-        }
-
-        return check;
+    public boolean checkCredentials(String username, String password) throws IOException {
+        return CSV.CheckPassword(username, password);
     }
 }

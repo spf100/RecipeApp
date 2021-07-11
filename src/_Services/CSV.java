@@ -70,7 +70,7 @@ public class CSV {
         return false;
     }
 
-    public boolean CheckPassword(String Username, String Password) throws IOException {
+    public static boolean CheckPassword(String Username, String Password) throws IOException {
         List<String[]> data = new ArrayList<>();
         data = returnData(1);
         String[] element = data.get(data.size()-1);
