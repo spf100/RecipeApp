@@ -10,6 +10,7 @@ import java.io.IOException;
 public class RegisterController {
     private LoginForm loginForm;
     private RegisterForm registerForm;
+
     public RegisterController(RegisterForm registerForm){
 
         this.registerForm = registerForm;

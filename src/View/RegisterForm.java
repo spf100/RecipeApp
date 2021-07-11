@@ -1,7 +1,7 @@
 package View;
 
 import javax.swing.*;
-
+import Controller.RegisterController;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
