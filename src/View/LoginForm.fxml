@@ -8,8 +8,8 @@
       <Button fx:id="submitButton" layoutX="257.0" layoutY="213.0" mnemonicParsing="false" onAction="#buttonHandler" prefHeight="25.0" prefWidth="103.0" text="Login" />
       <Label layoutX="165.0" layoutY="122.0" text="Username:" />
       <Label layoutX="167.0" layoutY="168.0" text="Password:" />
-      <TextField fx:id="passwordField" layoutX="257.0" layoutY="164.0" prefHeight="25.0" prefWidth="202.0" promptText="Password" />
       <TextField fx:id="usernameField" layoutX="257.0" layoutY="118.0" prefHeight="25.0" prefWidth="202.0" promptText="Username" />
       <Button fx:id="registerButton" layoutX="369.0" layoutY="213.0" mnemonicParsing="false" onAction="#registerbuttonHandler" prefHeight="25.0" prefWidth="90.0" text="Register" />
+      <PasswordField fx:id="passwordField" layoutX="257.0" layoutY="164.0" prefHeight="25.0" prefWidth="202.0" promptText="Password" />
    </children>
 </AnchorPane>

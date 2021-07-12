@@ -45,10 +45,10 @@ public class LoginForm implements Initializable {
 
                 holder.setUser(user);
 
-                System.out.println(getUsername());
+                //System.out.println(getUsername());
                 //move to next page
                 reset(true);
-                Parent root = FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
+                root = FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
                 stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);
@@ -72,7 +72,11 @@ public class LoginForm implements Initializable {
     }
     public void registerbuttonHandler(ActionEvent actionEvent) throws IOException {
        //move to register page
-
+        root = FXMLLoader.load(getClass().getResource("RegisterForm.fxml"));
+        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Override
