@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.RegisterForm">
+   <children>
+      <Button fx:id="cancelButton" layoutX="340.0" layoutY="220.0" mnemonicParsing="false" onAction="#cancelButtonHandler" prefHeight="25.0" prefWidth="78.0" text="Cancel" />
+      <Button fx:id="registerButton" layoutX="226.0" layoutY="220.0" mnemonicParsing="false" onAction="#registerButtonHandler" prefHeight="25.0" prefWidth="78.0" text="Register" />
+      <PasswordField fx:id="passwordField" layoutX="265.0" layoutY="136.0" promptText="Password" />
+      <PasswordField fx:id="confirmPassword" layoutX="265.0" layoutY="175.0" promptText="Confirm Password" />
+      <TextField fx:id="usernameField" layoutX="266.0" layoutY="96.0" promptText="Username" />
+      <Label layoutX="193.0" layoutY="100.0" text="Username:" />
+      <Label layoutX="195.0" layoutY="140.0" text="Password:" />
+      <Label layoutX="150.0" layoutY="179.0" text="Confirm Password:" />
+      <TextField fx:id="firstNameField" layoutX="265.0" layoutY="32.0" promptText="First Name" />
+      <TextField fx:id="lastNameField" layoutX="265.0" layoutY="64.0" promptText="Last Name" />
+      <Label layoutX="195.0" layoutY="36.0" text="First Name:" />
+      <Label layoutX="197.0" layoutY="68.0" text="Last Name:" />
+   </children>
+</AnchorPane>

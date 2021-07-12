@@ -37,8 +37,6 @@ public class CSV {
             }
             String[] rowdata;
             rowdata = row.split(",");
-            System.out.println("lets add:");
-            System.out.println(row);
             data.add(rowdata);
         }
         csvReader.close();
@@ -100,6 +98,7 @@ public class CSV {
      */
 
     public static boolean AddUser(String Username, String Password, String firstName, String lastName) throws IOException {
+        System.out.println("called");
         List<String[]> data;
         data = returnData(1);
         String[] element = data.get(data.size()-1);
