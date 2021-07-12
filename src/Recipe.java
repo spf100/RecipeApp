@@ -1,6 +1,4 @@
-import View.LoginForm;
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -25,7 +23,7 @@ public class Recipe extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         try{
-            login = (AnchorPane) FXMLLoader.load(getClass().getResource("LoginForm.fxml"));
+            login = (AnchorPane) FXMLLoader.load(getClass().getResource("View/LoginForm.fxml"));
 
             Scene scene = new Scene(login, 400, 400);
             primaryStage.setScene(scene);
