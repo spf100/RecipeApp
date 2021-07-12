@@ -15,5 +15,6 @@
       <TextField fx:id="passwordField" layoutX="262.0" layoutY="193.0" />
       <Label layoutX="294.0" layoutY="27.0" text="User Profile" />
       <Button fx:id="cookbookButton" layoutX="297.0" layoutY="233.0" mnemonicParsing="false" onAction="#cookbookButtonHandler" prefHeight="25.0" prefWidth="114.0" text="Cook Book" />
+      <Button fx:id="recipeButton" layoutX="189.0" layoutY="233.0" mnemonicParsing="false" onAction="#recipeListButtonHandler" prefHeight="25.0" prefWidth="98.0" text="Recipe List" />
    </children>
 </AnchorPane>

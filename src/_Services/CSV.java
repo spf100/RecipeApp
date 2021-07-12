@@ -23,12 +23,11 @@ public class CSV {
             case 2: filepath = "C:\\Users\\Gingy\\IdeaProjects\\RecipeApp\\src\\Data\\Recipes.csv";
                 break;
             default:
-                System.out.println("didnt make it");
+                //System.out.println("didnt make it");
                 return data;
         }
         BufferedReader csvReader = new BufferedReader(new FileReader(filepath));
         String row="";
-        System.out.println("loop");
         while (true){
             try {
                 if (((row = csvReader.readLine()) == null)) break;
@@ -52,7 +51,7 @@ public class CSV {
             case 2: filepath = "C:\\Users\\Gingy\\IdeaProjects\\RecipeApp\\src\\Data\\Recipes.csv";
                 break;
             default:
-                System.out.println("didnt make it");
+                ////System.out.println("didnt make it");
                 return false;
         }
         try {
@@ -86,7 +85,7 @@ public class CSV {
             oldData = returnData(path);
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("Could not find old data");
+            //System.out.println("Could not find old data");
             return false;
         }
         oldData.addAll(list);
@@ -98,7 +97,7 @@ public class CSV {
      */
 
     public static boolean AddUser(String Username, String Password, String firstName, String lastName) throws IOException {
-        System.out.println("called");
+        //System.out.println("called");
         List<String[]> data;
         data = returnData(1);
         String[] element = data.get(data.size()-1);
