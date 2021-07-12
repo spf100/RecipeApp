@@ -14,5 +14,6 @@
        <Label layoutX="193.0" layoutY="125.0" text="Last Name:" />
       <TextField fx:id="passwordField" layoutX="262.0" layoutY="193.0" />
       <Label layoutX="294.0" layoutY="27.0" text="User Profile" />
+      <Button fx:id="cookbookButton" layoutX="297.0" layoutY="233.0" mnemonicParsing="false" onAction="#cookbookButtonHandler" prefHeight="25.0" prefWidth="114.0" text="Cook Book" />
    </children>
 </AnchorPane>

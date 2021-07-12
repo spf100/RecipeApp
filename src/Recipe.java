@@ -1,5 +1,6 @@
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -11,6 +12,9 @@ import static javafx.application.Application.launch;
 
 public class Recipe extends Application {
     static AnchorPane login;
+    static AnchorPane profile;
+    static AnchorPane register;
+
     static List<AnchorPane> grid = new ArrayList<AnchorPane>();
 
     private static int index_cur = 0;
@@ -23,9 +27,8 @@ public class Recipe extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         try{
-            login = (AnchorPane) FXMLLoader.load(getClass().getResource("View/LoginForm.fxml"));
-
-            Scene scene = new Scene(login, 400, 400);
+            Parent root =  FXMLLoader.load(getClass().getResource("View/LoginForm.fxml"));
+            Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();
         }catch(Exception e){
@@ -38,9 +41,6 @@ public class Recipe extends Application {
         for(int i = 0; i < grid.size(); i++){
 
         }
-    }
-    public static AnchorPane get_pane(int index){
-        return grid.get(index);
     }
 
 }
