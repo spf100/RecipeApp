@@ -18,6 +18,8 @@ public class RegisterController {
         this.registerForm.submitUserData(e -> {
             String username = this.registerForm.getUsername().trim();
             String password = this.registerForm.getPassword();
+            String firstname = this.registerForm.getFirstName();
+            String lastname = this.registerForm.getLastName();
             String confirmPassword = this.registerForm.getConfirmPassword();
             //check if fields were empty when submitted
             if(username.isEmpty() || password.isEmpty()){
@@ -41,7 +43,7 @@ public class RegisterController {
             }
             boolean isAdded = false;
             try {
-                 isAdded = this.AddUser(username, password);
+                 isAdded = this.AddUser(username, password, firstname, lastname);
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
@@ -57,8 +59,8 @@ public class RegisterController {
     public boolean checkCredentials(String username) throws IOException {
         return CSV.findUser(username);
     }
-    public boolean AddUser(String username, String password) throws IOException {
-        return CSV.AddUser(username, password);
+    public boolean AddUser(String username, String password, String firstname, String lastname) throws IOException {
+        return CSV.AddUser(username, password, firstname, lastname);
     }
 
 }

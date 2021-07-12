@@ -8,8 +8,8 @@ public class CSV {
     /*
     60 columns in recipe CSV, if no data put "","","",
     Column order: Title, Directions, Quantity, Unit(measuring), Ingredient....repeat.....Category
-    3 columns in User CSV
-    Column order: ID, Username, Password
+    5 columns in User CSV
+    Column order: ID, Username, Password, First name, Last name
      */
 
 
@@ -99,7 +99,7 @@ public class CSV {
     User Checks/Removes/Additions
      */
 
-    public static boolean AddUser(String Username, String Password) throws IOException {
+    public static boolean AddUser(String Username, String Password, String firstName, String lastName) throws IOException {
         List<String[]> data;
         data = returnData(1);
         String[] element = data.get(data.size()-1);
@@ -110,7 +110,7 @@ public class CSV {
                 return false;
             }
         }
-        String[] userData = {id, Username, Password};
+        String[] userData = {id, Username, Password, firstName, lastName};
         data.add(userData);
         return AddToCSV(1, data);
     }
