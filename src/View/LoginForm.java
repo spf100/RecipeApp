@@ -1,34 +1,22 @@
 package View;
 import Controller.LoginController;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class LoginForm extends JPanel {
 
-    private JTextField usernameField;
-    private JTextField passwordField;
-
-    private JButton loginButton;
-    private JButton registerButton;
-    public LoginForm(){
-
-        JLabel usernameLabel = new JLabel("Username: ");
-        JLabel passwordLabel = new JLabel("Password: ");
-
-        usernameField = new JTextField(30);
-        passwordField = new JTextField(30);
-
-        loginButton = new JButton("Login");
-        loginButton.setPreferredSize(new Dimension(278, 40));
-        registerButton = new JButton("Register");
-        registerButton.setPreferredSize(new Dimension(278, 40));
-
-        Insets fieldsInset = new Insets(0,0,10,0);
-        Insets buttonInset = new Insets(20, 0, 0, 0);
-
-
-    }
+    public Button submitButton;
+    public TextField passwordField;
+    public TextField usernameField;
+    public Button registerButton;
 
     public String getUsername(){
         return usernameField.getText();
@@ -36,8 +24,17 @@ public class LoginForm extends JPanel {
     public String getPassword(){
         return passwordField.getText();
     }
-    public void submitUserData(ActionListener actionListener){
-        loginButton.addActionListener(actionListener);
+
+
+
+    public void submitUserData(ActionEvent actionEvent) throws IOException {
+        if(!getUsername().equals("") && !getPassword().equals("")){
+            if(LoginController.submitUserData(getUsername(), getPassword())){
+                //move to next page
+            }
+        }
+        //else provide user an alert
+
     }
 
     public void reset(boolean bool){
@@ -47,4 +44,10 @@ public class LoginForm extends JPanel {
         }
     }
 
+    public void buttonHandler(ActionEvent actionEvent) throws IOException {
+        submitUserData(actionEvent);
+    }
+    public void registerbuttonHandler(ActionEvent actionEvent) throws IOException {
+       //move to register page
+    }
 }
