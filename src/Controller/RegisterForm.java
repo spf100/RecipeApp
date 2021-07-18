@@ -52,7 +52,7 @@ public class RegisterForm extends JPanel {
                 if(RegisterController.submitUserData(getUsername(), getPassword(), getFirstName(), getLastName())){
                     //move to next page;
                     reset(true);
-                    root = FXMLLoader.load(getClass().getResource("LoginForm.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("../View/LoginForm.fxml"));
                     stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
                     scene = new Scene(root);
                     stage.setScene(scene);
@@ -74,7 +74,7 @@ public class RegisterForm extends JPanel {
     }
 
     public void cancelButtonHandler(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("LoginForm.fxml"));
+        root = FXMLLoader.load(getClass().getResource("../View/LoginForm.fxml"));
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

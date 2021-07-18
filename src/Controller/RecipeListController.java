@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.RecipeSearchList;
 import _Services.CSV;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -14,10 +15,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Array;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class RecipeListController implements Initializable {
     public Button recipe1;
@@ -29,15 +27,15 @@ public class RecipeListController implements Initializable {
     public Button searchButton;
     public Button randomButton;
     public Button logoutButton;
+    public Button backButton;
+    public Button nextButton;
     private Stage stage;
     private Scene scene;
     private Parent root;
-    public void recipeHandler(ActionEvent actionEvent) {
-    }
+    private Integer count = 1;
 
-    public void searchButtonHandler(ActionEvent actionEvent) {
-    }
-
+    List<String[]> searchList = new ArrayList<String[]>();
+    List<String[]> mainList = new ArrayList<String[]>();
     public void createList(){
         List<String[]> recipeList = new ArrayList<>();
         try {
@@ -76,19 +74,103 @@ public class RecipeListController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
        createList();
+        List<String[]> list = new ArrayList<>();
+        searchList = list;
+        try {
+            mainList = CSV.returnData(2);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(Arrays.toString(mainList.get(1)));
     }
 
     public void randomButtonHandler(ActionEvent actionEvent) {
         createList();
     }
+    public void mainListButtonHandler(ActionEvent actionEvent){
+        List<String[]> list = new ArrayList<>();
+        searchList = list;
+        createRecipeList(mainList);
+    }
     public void logoutButtonHandler(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("LoginForm.fxml"));
+        root = FXMLLoader.load(getClass().getResource("../View/LoginForm.fxml"));
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-    
-    
+
+    public void recipeHandler(ActionEvent actionEvent) {
+    }
+
+    public void searchButtonHandler(ActionEvent actionEvent) throws IOException {
+        String input = searchField.getText();
+        count = 1;
+        searchList = CSV.SearchRecipes(input);
+        System.out.println(searchList.size());
+        System.out.println(searchList.get(1));
+        if(searchList.size() != 0){
+            createRecipeList(searchList);
+        }else{
+            //alert user there is nothing in search
+        }
+    }
+    public void createRecipeList(List<String[]> givenList){
+        RecipeSearchList list = new RecipeSearchList(givenList);
+        if(list.size() != 0){
+            int recipes = 0;
+            String[] recipeList = new String[5];
+            System.out.println(count);
+            System.out.println(list.size());
+            System.out.println(list.getIndex(count, 0));
+
+            while(count < list.size()){
+                if(recipes > 4){
+                    break;
+                }
+                recipeList[recipes] = list.getIndex(count, 0);
+                count++;
+                recipes++;
+            }
+            while(recipes < 5){
+                recipeList[recipes] = "";
+                count++;
+                recipes++;
+            }
+            recipe1.setText(recipeList[0]);
+            recipe2.setText(recipeList[1]);
+            recipe3.setText(recipeList[2]);
+            recipe4.setText(recipeList[3]);
+            recipe5.setText(recipeList[4]);
+        }else{
+            //alert user there is nothing in search
+        }
+    }
+    public void nextButtonHandler(ActionEvent actionEvent) throws IOException{
+        if(searchList.size() != 0) {
+            if (count < searchList.size()) {
+                createRecipeList(searchList);
+            }
+        }
+        else {
+            if (count < mainList.size()) {
+                createRecipeList(mainList);
+            }
+        }
+    }
+
+
+    public void backButtonHandler(ActionEvent actionEvent) throws IOException{
+            count = count - 10;
+            if(count < 1){
+                count = 1;
+            }
+            if(searchList.size() != 0){
+                createRecipeList(searchList);
+            }
+             else{
+                createRecipeList(mainList);
+            }
+    }
     
 }

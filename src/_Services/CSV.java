@@ -1,7 +1,9 @@
 package _Services;
 
 import java.io.*;
+import java.sql.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CSV {
@@ -17,18 +19,20 @@ public class CSV {
     public static List<String[]> returnData(Integer path) throws IOException {
         List<String[]> data = new ArrayList<>();
         String filepath;
-        switch(path){
-            case 1: filepath = "C:\\Users\\Gingy\\IdeaProjects\\RecipeApp\\src\\Data\\UserData.csv";
+        switch (path) {
+            case 1:
+                filepath = "C:\\Users\\Gingy\\IdeaProjects\\RecipeApp\\src\\Data\\UserData.csv";
                 break;
-            case 2: filepath = "C:\\Users\\Gingy\\IdeaProjects\\RecipeApp\\src\\Data\\Recipes.csv";
+            case 2:
+                filepath = "C:\\Users\\Gingy\\IdeaProjects\\RecipeApp\\src\\Data\\Recipes.csv";
                 break;
             default:
                 //System.out.println("didnt make it");
                 return data;
         }
         BufferedReader csvReader = new BufferedReader(new FileReader(filepath));
-        String row="";
-        while (true){
+        String row = "";
+        while (true) {
             try {
                 if (((row = csvReader.readLine()) == null)) break;
             } catch (IOException e) {
@@ -43,12 +47,14 @@ public class CSV {
     }
 
     //writer for csv of choice
-    private static boolean WriteToCSV(Integer path, List<String[]> list){
+    private static boolean WriteToCSV(Integer path, List<String[]> list) {
         String filepath;
-        switch(path){
-            case 1: filepath = "C:\\Users\\Gingy\\IdeaProjects\\RecipeApp\\src\\Data\\UserData.csv";
+        switch (path) {
+            case 1:
+                filepath = "C:\\Users\\Gingy\\IdeaProjects\\RecipeApp\\src\\Data\\UserData.csv";
                 break;
-            case 2: filepath = "C:\\Users\\Gingy\\IdeaProjects\\RecipeApp\\src\\Data\\Recipes.csv";
+            case 2:
+                filepath = "C:\\Users\\Gingy\\IdeaProjects\\RecipeApp\\src\\Data\\Recipes.csv";
                 break;
             default:
                 ////System.out.println("didnt make it");
@@ -74,12 +80,12 @@ public class CSV {
     }
 
     //overwrite entire csv
-    public static boolean OverwriteCSV(Integer path, List<String[]> list){
+    public static boolean OverwriteCSV(Integer path, List<String[]> list) {
         return WriteToCSV(path, list);
     }
 
     //append to CSV
-    public static boolean AddToCSV(Integer path, List<String[]> list){
+    public static boolean AddToCSV(Integer path, List<String[]> list) {
         List<String[]> oldData;
         try {
             oldData = returnData(path);
@@ -100,7 +106,7 @@ public class CSV {
         //System.out.println("called");
         List<String[]> data;
         data = returnData(1);
-        String[] element = data.get(data.size()-1);
+        String[] element = data.get(data.size() - 1);
         String id = element[0];
         for (String[] checkData : data) {
             if (checkData[1].equals(Username)) {
@@ -114,7 +120,7 @@ public class CSV {
     }
 
     //remove user from csv
-    public boolean RemoveUser(String Username) throws IOException{
+    public boolean RemoveUser(String Username) throws IOException {
         List<String[]> data;
         data = returnData(1);
         for (String[] checkData : data) {
@@ -175,7 +181,7 @@ public class CSV {
         data = returnData(2);
         for (String[] checkData : data) {
             if (checkData[0].equals(Title)) {
-               return true;
+                return true;
             }
         }
         //user doesnt exist
@@ -211,7 +217,7 @@ public class CSV {
 
     //add recipe to csv
     public static boolean AddRecipe(String[] Recipe) throws IOException {
-        if(CheckRecipe(Recipe[0])){
+        if (CheckRecipe(Recipe[0])) {
             //needs new title
             return false;
         }
@@ -221,6 +227,16 @@ public class CSV {
         return AddToCSV(2, data);
     }
 
+    public static List<String[]> SearchRecipes(String item) throws IOException {
+        List<String[]> list;
+        List<String[]> searchList = new ArrayList<>();
+        list = returnData(2);
+        for (String[] checkData : list) {
+            if (Arrays.asList(checkData).contains(item)) {
+                searchList.add(checkData);
+            }
+        }
+        return searchList;
+    }
 }
-
 

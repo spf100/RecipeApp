@@ -48,7 +48,7 @@ public class LoginForm implements Initializable {
                 //System.out.println(getUsername());
                 //move to next page
                 reset(true);
-                root = FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
+                root = FXMLLoader.load(getClass().getResource("../View/UserProfile.fxml"));
                 stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);
