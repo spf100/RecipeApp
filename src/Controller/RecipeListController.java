@@ -18,24 +18,18 @@ import java.sql.Array;
 import java.util.*;
 
 public class RecipeListController implements Initializable {
-    public Button recipe1;
-    public Button recipe5;
-    public Button recipe2;
-    public Button recipe3;
-    public Button recipe4;
+    public Button recipe1;  public Button recipe2;  public Button recipe3;
+    public Button recipe4;  public Button recipe5;
+
     public TextField searchField;
-    public Button searchButton;
-    public Button randomButton;
-    public Button logoutButton;
-    public Button backButton;
-    public Button nextButton;
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
+
+    public Button searchButton; public Button randomButton; public Button logoutButton;
+    public Button backButton;   public Button nextButton;   public Button mainListButton;
+    private Stage stage;    private Scene scene;    private Parent root;
     private Integer count = 1;
 
     List<String[]> searchList = new ArrayList<String[]>();
-    List<String[]> mainList = new ArrayList<String[]>();
+    List<String[]> mainList;
     public void createList(){
         List<String[]> recipeList = new ArrayList<>();
         try {
@@ -81,7 +75,7 @@ public class RecipeListController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(Arrays.toString(mainList.get(1)));
+       // System.out.println(Arrays.toString(mainList.get(1)));
     }
 
     public void randomButtonHandler(ActionEvent actionEvent) {
@@ -90,6 +84,7 @@ public class RecipeListController implements Initializable {
     public void mainListButtonHandler(ActionEvent actionEvent){
         List<String[]> list = new ArrayList<>();
         searchList = list;
+        count = 1;
         createRecipeList(mainList);
     }
     public void logoutButtonHandler(ActionEvent actionEvent) throws IOException {
@@ -107,8 +102,8 @@ public class RecipeListController implements Initializable {
         String input = searchField.getText();
         count = 1;
         searchList = CSV.SearchRecipes(input);
-        System.out.println(searchList.size());
-        System.out.println(searchList.get(1));
+       // System.out.println("CHECK SIZE IN CONTROLLER");
+        //System.out.println(searchList.size());
         if(searchList.size() != 0){
             createRecipeList(searchList);
         }else{
@@ -120,9 +115,9 @@ public class RecipeListController implements Initializable {
         if(list.size() != 0){
             int recipes = 0;
             String[] recipeList = new String[5];
-            System.out.println(count);
-            System.out.println(list.size());
-            System.out.println(list.getIndex(count, 0));
+           // System.out.println(count);
+           // System.out.println(list.size());
+            //System.out.println(list.getIndex(count, 0));
 
             while(count < list.size()){
                 if(recipes > 4){

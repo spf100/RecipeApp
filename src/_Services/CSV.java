@@ -5,6 +5,7 @@ import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 public class CSV {
     /*
@@ -13,8 +14,6 @@ public class CSV {
     5 columns in User CSV
     Column order: ID, Username, Password, First name, Last name
      */
-
-
     //Return all data from CSV of choice
     public static List<String[]> returnData(Integer path) throws IOException {
         List<String[]> data = new ArrayList<>();
@@ -170,7 +169,6 @@ public class CSV {
         return false;
     }
 
-
     /*
     Recipe Checks/Removes/Additions
      */
@@ -231,11 +229,25 @@ public class CSV {
         List<String[]> list;
         List<String[]> searchList = new ArrayList<>();
         list = returnData(2);
+       // System.out.println("CHECK LIST SIZE");
+       // System.out.println(list.size());
+        int i = 0;
         for (String[] checkData : list) {
-            if (Arrays.asList(checkData).contains(item)) {
-                searchList.add(checkData);
+            if(i != 0){
+               // System.out.println("CHECK ARRAY");
+               // System.out.println(Arrays.toString(checkData));
+               //System.out.println(checkData[0].toLowerCase());
+                if(checkData[0].toLowerCase().contains(item.toLowerCase())){
+                   // System.out.println("CHECK CHECKDATA");
+                   // System.out.println(checkData[0]);
+                    searchList.add(checkData);
+                }
             }
+            i++;
+
         }
+       // System.out.println("CHECK SIZE OF LIST");
+       // System.out.println(searchList.size());
         return searchList;
     }
 }
