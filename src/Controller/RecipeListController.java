@@ -1,10 +1,15 @@
-package View;
+package Controller;
 
 import _Services.CSV;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -14,7 +19,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-public class RecipeList implements Initializable {
+public class RecipeListController implements Initializable {
     public Button recipe1;
     public Button recipe5;
     public Button recipe2;
@@ -23,7 +28,10 @@ public class RecipeList implements Initializable {
     public TextField searchField;
     public Button searchButton;
     public Button randomButton;
-
+    public Button logoutButton;
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
     public void recipeHandler(ActionEvent actionEvent) {
     }
 
@@ -73,4 +81,14 @@ public class RecipeList implements Initializable {
     public void randomButtonHandler(ActionEvent actionEvent) {
         createList();
     }
+    public void logoutButtonHandler(ActionEvent actionEvent) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("LoginForm.fxml"));
+        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    
+    
+    
 }

@@ -1,10 +1,7 @@
 package Controller;
 
-import View.LoginForm;
-import View.RegisterForm;
 import _Services.CSV;
 
-import javax.swing.*;
 import java.io.IOException;
 
 public class RegisterController {

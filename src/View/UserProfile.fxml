@@ -3,18 +3,19 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.UserProfile">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserProfileController">
    <children>
-       <TextField fx:id="usernameField" layoutX="262.0" layoutY="153.0" />
+       <TextField fx:id="usernameField" disable="true" layoutX="262.0" layoutY="153.0" />
        <Label layoutX="189.0" layoutY="157.0" text="Username:" />
        <Label layoutX="191.0" layoutY="197.0" text="Password:" />
-       <TextField fx:id="firstNameField" layoutX="261.0" layoutY="89.0" />
-       <TextField fx:id="lastNameField" layoutX="261.0" layoutY="121.0" />
+       <TextField fx:id="firstNameField" disable="true" layoutX="261.0" layoutY="89.0" />
+       <TextField fx:id="lastNameField" disable="true" layoutX="261.0" layoutY="121.0" />
        <Label layoutX="191.0" layoutY="93.0" text="First Name:" />
        <Label layoutX="193.0" layoutY="125.0" text="Last Name:" />
-      <TextField fx:id="passwordField" layoutX="262.0" layoutY="193.0" />
+      <TextField fx:id="passwordField" disable="true" layoutX="262.0" layoutY="193.0" />
       <Label layoutX="294.0" layoutY="27.0" text="User Profile" />
       <Button fx:id="cookbookButton" layoutX="297.0" layoutY="233.0" mnemonicParsing="false" onAction="#cookbookButtonHandler" prefHeight="25.0" prefWidth="114.0" text="Cook Book" />
       <Button fx:id="recipeButton" layoutX="189.0" layoutY="233.0" mnemonicParsing="false" onAction="#recipeListButtonHandler" prefHeight="25.0" prefWidth="98.0" text="Recipe List" />
+      <Button fx:id="logoutButton" layoutX="460.0" layoutY="23.0" mnemonicParsing="false" onAction="#logoutButtonHandler" prefHeight="25.0" prefWidth="104.0" text="Logout" />
    </children>
 </AnchorPane>

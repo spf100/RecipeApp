@@ -16,6 +16,7 @@ public class RecipeListItem {
         this.title = title;
         this.ingredients = ingredients;
     }
+
     public String getTitle(){return this.title;}
     public String getCategory(){return this.category;}
     public ArrayList<String> getIngredients(){return this.ingredients;}

@@ -19,9 +19,7 @@ public class User{
         return password;
     }
 
-    public String getUsername() {
-        return username;
-    }
+    public String getUsername() {return username; }
     public String getFirstName(){return firstName;}
     public String getLastName(){return lastName;}
 

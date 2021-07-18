@@ -1,4 +1,4 @@
-package View;
+package Controller;
 
 import Model.User;
 import Model.UserHolder;
@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class UserProfile implements Initializable {
+public class UserProfileController implements Initializable {
 
 
     public TextField usernameField;
@@ -26,6 +26,7 @@ public class UserProfile implements Initializable {
     public TextField passwordField;
     public Button cookbookButton;
     public Button recipeButton;
+    public Button logoutButton;
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -52,7 +53,14 @@ public class UserProfile implements Initializable {
     }
 
     public void recipeListButtonHandler(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("RecipeList.fxml"));
+        root = FXMLLoader.load(getClass().getResource("../View/RecipeList.fxml"));
+        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void logoutButtonHandler(ActionEvent actionEvent) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("LoginForm.fxml"));
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
