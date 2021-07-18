@@ -25,6 +25,8 @@ public class RecipeListController implements Initializable {
 
     public Button searchButton; public Button randomButton; public Button logoutButton;
     public Button backButton;   public Button nextButton;   public Button mainListButton;
+    public Button cookbookButton;
+    public Button profileButton;
     private Stage stage;    private Scene scene;    private Parent root;
     private Integer count = 1;
 
@@ -94,10 +96,6 @@ public class RecipeListController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
-    public void recipeHandler(ActionEvent actionEvent) {
-    }
-
     public void searchButtonHandler(ActionEvent actionEvent) throws IOException {
         String input = searchField.getText();
         count = 1;
@@ -153,8 +151,6 @@ public class RecipeListController implements Initializable {
             }
         }
     }
-
-
     public void backButtonHandler(ActionEvent actionEvent) throws IOException{
             count = count - 10;
             if(count < 1){
@@ -167,5 +163,23 @@ public class RecipeListController implements Initializable {
                 createRecipeList(mainList);
             }
     }
-    
+    public void profileButtonHandler(ActionEvent actionEvent) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("../View/UserProfile.fxml"));
+        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void cookbookButtonHandler(ActionEvent actionEvent) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("../View/CookbookView.fxml"));
+        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+    public void recipeHandler(){
+
+    }
 }
