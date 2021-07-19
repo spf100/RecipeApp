@@ -72,7 +72,7 @@ public class LoginForm implements Initializable {
     }
     public void registerbuttonHandler(ActionEvent actionEvent) throws IOException {
        //move to register page
-        root = FXMLLoader.load(getClass().getResource("RegisterForm.fxml"));
+        root = FXMLLoader.load(getClass().getResource("../View/RegisterForm.fxml"));
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
