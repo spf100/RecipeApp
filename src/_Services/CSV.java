@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.Locale;
 
 public class CSV {
+    private static String userDataPath = "C:\\Users\\Gingy\\IdeaProjects\\RecipeApp\\src\\Data\\UserData.csv";
+    private static String recipePath = "C:\\Users\\Gingy\\IdeaProjects\\RecipeApp\\src\\Data\\Recipes.csv";
+    private static String cookbookPath = "C:\\Users\\Gingy\\IdeaProjects\\RecipeApp\\src\\Data\\UserCookbook.csv";
     /*
     60 columns in recipe CSV, if no data put "","","",
     Column order: Title, Directions, Quantity, Unit(measuring), Ingredient....repeat.....Category
@@ -20,10 +23,13 @@ public class CSV {
         String filepath;
         switch (path) {
             case 1:
-                filepath = "C:\\Users\\Gingy\\IdeaProjects\\RecipeApp\\src\\Data\\UserData.csv";
+                filepath = userDataPath;
                 break;
             case 2:
-                filepath = "C:\\Users\\Gingy\\IdeaProjects\\RecipeApp\\src\\Data\\Recipes.csv";
+                filepath = recipePath;
+                break;
+            case 3:
+                filepath = cookbookPath;
                 break;
             default:
                 //System.out.println("didnt make it");
@@ -50,10 +56,13 @@ public class CSV {
         String filepath;
         switch (path) {
             case 1:
-                filepath = "C:\\Users\\Gingy\\IdeaProjects\\RecipeApp\\src\\Data\\UserData.csv";
+                filepath = userDataPath;
                 break;
             case 2:
-                filepath = "C:\\Users\\Gingy\\IdeaProjects\\RecipeApp\\src\\Data\\Recipes.csv";
+                filepath = recipePath;
+                break;
+            case 3:
+                filepath = cookbookPath;
                 break;
             default:
                 ////System.out.println("didnt make it");
@@ -233,21 +242,44 @@ public class CSV {
        // System.out.println(list.size());
         int i = 0;
         for (String[] checkData : list) {
-            if(i != 0){
-               // System.out.println("CHECK ARRAY");
-               // System.out.println(Arrays.toString(checkData));
-               //System.out.println(checkData[0].toLowerCase());
-                if(checkData[0].toLowerCase().contains(item.toLowerCase())){
-                   // System.out.println("CHECK CHECKDATA");
-                   // System.out.println(checkData[0]);
-                    searchList.add(checkData);
-                }
+           // System.out.println("CHECK ARRAY");
+           // System.out.println(Arrays.toString(checkData));
+           //System.out.println(checkData[0].toLowerCase());
+            if(checkData[0].toLowerCase().contains(item.toLowerCase())){
+               // System.out.println("CHECK CHECKDATA");
+               // System.out.println(checkData[0]);
+                searchList.add(checkData);
             }
+
             i++;
 
         }
        // System.out.println("CHECK SIZE OF LIST");
        // System.out.println(searchList.size());
+        return searchList;
+    }
+    public static List<String[]> SearchCookbook(String item) throws IOException {
+        List<String[]> list;
+        List<String[]> searchList = new ArrayList<>();
+        list = returnData(3);
+        // System.out.println("CHECK LIST SIZE");
+        // System.out.println(list.size());
+        int i = 0;
+        for (String[] checkData : list) {
+            // System.out.println("CHECK ARRAY");
+            // System.out.println(Arrays.toString(checkData));
+            //System.out.println(checkData[0].toLowerCase());
+            if(checkData[0].toLowerCase().contains(item.toLowerCase())){
+                // System.out.println("CHECK CHECKDATA");
+                // System.out.println(checkData[0]);
+                searchList.add(checkData);
+            }
+
+            i++;
+
+        }
+        // System.out.println("CHECK SIZE OF LIST");
+        // System.out.println(searchList.size());
         return searchList;
     }
 }

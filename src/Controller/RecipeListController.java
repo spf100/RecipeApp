@@ -1,6 +1,6 @@
 package Controller;
 
-import Model.RecipeSearchList;
+import Model.RecipeList;
 import _Services.CSV;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +14,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Array;
 import java.util.*;
 
 public class RecipeListController implements Initializable {
@@ -98,7 +97,7 @@ public class RecipeListController implements Initializable {
     }
     public void searchButtonHandler(ActionEvent actionEvent) throws IOException {
         String input = searchField.getText();
-        count = 1;
+        count = 0;
         searchList = CSV.SearchRecipes(input);
        // System.out.println("CHECK SIZE IN CONTROLLER");
         //System.out.println(searchList.size());
@@ -109,7 +108,7 @@ public class RecipeListController implements Initializable {
         }
     }
     public void createRecipeList(List<String[]> givenList){
-        RecipeSearchList list = new RecipeSearchList(givenList);
+        RecipeList list = new RecipeList(givenList);
         if(list.size() != 0){
             int recipes = 0;
             String[] recipeList = new String[5];

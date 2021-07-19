@@ -35,8 +35,12 @@ public class UserProfileController implements Initializable {
     }
 
     @FXML
-    public void cookbookButtonHandler(ActionEvent actionEvent) {
-
+    public void cookbookButtonHandler(ActionEvent actionEvent) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("../View/CookbookView.fxml"));
+        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -60,7 +64,7 @@ public class UserProfileController implements Initializable {
         stage.show();
     }
     public void logoutButtonHandler(ActionEvent actionEvent) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("LoginForm.fxml"));
+        root = FXMLLoader.load(getClass().getResource("../View/LoginForm.fxml"));
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

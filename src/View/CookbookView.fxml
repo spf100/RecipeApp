@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Controller.CookbookController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="601.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CookbookController">
+    <children>
+        <Button fx:id="recipe1" layoutX="154.0" layoutY="249.0" mnemonicParsing="false" onAction="#recipeHandler" prefHeight="25.0" prefWidth="267.0" text="Button" textAlignment="CENTER" />
+        <Button fx:id="recipe2" layoutX="154.0" layoutY="295.0" mnemonicParsing="false" onAction="#recipeHandler" prefHeight="25.0" prefWidth="267.0" text="Button" textAlignment="CENTER" />
+        <Button fx:id="recipe3" layoutX="154.0" layoutY="344.0" mnemonicParsing="false" onAction="#recipeHandler" prefHeight="25.0" prefWidth="267.0" text="Button" textAlignment="CENTER" />
+        <Button fx:id="recipe4" layoutX="154.0" layoutY="396.0" mnemonicParsing="false" onAction="#recipeHandler" prefHeight="25.0" prefWidth="267.0" text="Button" textAlignment="CENTER" />
+        <Button fx:id="recipe5" layoutX="154.0" layoutY="447.0" mnemonicParsing="false" onAction="#recipeHandler" prefHeight="25.0" prefWidth="267.0" text="Button" textAlignment="CENTER" />
+        <Label layoutX="240.0" layoutY="98.0" prefHeight="27.0" prefWidth="95.0" text="Cook Book" textAlignment="CENTER" textOverrun="CLIP" underline="true">
+            <font>
+                <Font size="18.0" />
+            </font></Label>
+        <TextField fx:id="searchField" layoutX="154.0" layoutY="149.0" prefHeight="25.0" prefWidth="215.0" promptText="Search" />
+        <Button fx:id="searchButton" layoutX="369.0" layoutY="149.0" mnemonicParsing="false" onAction="#searchButtonHandler" text="Search" />
+        <Button fx:id="profileButton" layoutX="56.0" layoutY="23.0" mnemonicParsing="false" onAction="#profileButtonHandler" prefHeight="25.0" prefWidth="84.0" text="Profile" />
+        <Button fx:id="recipeListButton" layoutX="154.0" layoutY="23.0" mnemonicParsing="false" onAction="#recipeListButtonHandler" prefHeight="25.0" prefWidth="84.0" text="Recipe List" />
+        <Button fx:id="logoutButton" layoutX="483.0" layoutY="23.0" mnemonicParsing="false" onAction="#logoutButtonHandler" prefHeight="25.0" prefWidth="84.0" text="Logout" />
+        <Button fx:id="nextButton" layoutX="353.0" layoutY="503.0" mnemonicParsing="false" onAction="#nextButtonHandler" prefHeight="25.0" prefWidth="68.0" text="Next" />
+        <Button fx:id="backButton" layoutX="154.0" layoutY="503.0" mnemonicParsing="false" onAction="#backButtonHandler" prefHeight="25.0" prefWidth="68.0" text="Back" />
+        <Button fx:id="mainListButton" layoutX="326.0" layoutY="194.0" mnemonicParsing="false" onAction="#mainListButtonHandler" prefHeight="25.0" prefWidth="95.0" text="Main List" />
+      <Button fx:id="addRecipeButton" layoutX="154.0" layoutY="194.0" mnemonicParsing="false" onAction="#addRecipeButtonHandler" prefHeight="25.0" prefWidth="84.0" text="Add Recipe" />
+    </children>
 </AnchorPane>

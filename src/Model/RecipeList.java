@@ -1,14 +1,15 @@
 package Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class RecipeSearchList {
+public class RecipeList {
     private List<String[]> list;
 
-    public RecipeSearchList(){
+    public RecipeList(){
 
     }
-    public RecipeSearchList(List<String[]> list){
+    public RecipeList(List<String[]> list){
         this.list = list;
     }
 
@@ -21,4 +22,6 @@ public class RecipeSearchList {
     public String[] getArray(int i){return this.list.get(i);}
     public String getIndex(int i, int j){return this.list.get(i)[j];}
     public Integer size(){return this.list.size();}
+
+
 }
